@@ -1,17 +1,32 @@
 import { useState } from "react";
-import { BsMenuUp , BsMenuDown} from "react-icons/bs";
+import { TfiMenu } from "react-icons/tfi";
+import { FaRegWindowClose } from "react-icons/fa";
 import {motion} from "framer-motion"
+import { CiHome } from "react-icons/ci";
+import { MdMiscellaneousServices } from "react-icons/md";
+import { MdContactMail } from "react-icons/md";
+import { TbLogin2 } from "react-icons/tb";
+import { TbLogin } from "react-icons/tb";
 
 const Navbars = () => {
   const [isopenMenu , setIsopenMenu] = useState<boolean>(false);
+  const [activeMenu, setActiveMenu] = useState<string>("Home");
+  
+  
   const handlerClickMenu = () => {
       setIsopenMenu(!isopenMenu);
   }
   return (
     <>
-    <div className='container-fluid bg-body-tertiary'>
+    <div className='m-2 p-1 border rounded-3 bg-body-tertiary'> 
       <div className="row" style={{height:"10vh" , width:"100wv"}}>
-        <div className="col-8 align-content-center">
+        <div className="col-5 d-md-none co align-content-center" style={{marginTop:"13px"}}>
+          <button className='border-0 bg-body-tertiary fs-4' onClick={handlerClickMenu}>
+                 <FaRegWindowClose className={isopenMenu ? "d-block" : "d-none"} />
+                 <TfiMenu className={!isopenMenu ? "d-block" : "d-none"}/>
+          </button>
+        </div>
+        <div className="col-7 col-md-12 align-content-center">
               <svg width="200"  viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg" className='p-0 m-0'>
                   <text x="10" y="50" font-family="Arial" font-size="40" font-weight="bold" fill="black">DO</text>
                   <text x="75" y="50" font-family="Arial" font-size="50"  fill="black">C</text>      
@@ -29,87 +44,77 @@ const Navbars = () => {
               </svg>
 
         </div>
-        <div className="col-4 align-content-center justify-content-end" style={{textAlign:"end"}}>
-          <button className='border-0 bg-body-tertiary fs-4' onClick={handlerClickMenu}>
-                 <BsMenuUp className={isopenMenu ? "d-block" : "d-none"} />
-                 <BsMenuDown className={!isopenMenu ? "d-block" : "d-none"}/>
-          </button>
-          {isopenMenu &&
-            <motion.nav className="mobile-menu-content bg-body-tertiary"
-                     initial={{x:-320}}
-                     animate={{x:0}}
-                     exit={{x:-320}}
-                     transition={{duration:0.5 , ease:"linear"}}
-            >
-              
-               
-            </motion.nav>
-          }
-          
-        </div>
+        
       </div>
+      <div className="mobile-menu-content">
+        {isopenMenu &&
+              <motion.nav className="m-2 p-1 border rounded-3 bg-body-tertiary h-100"
+                       initial={{x:-400}}
+                       animate={{x:0}}
+                       transition={{duration:0.3, ease:"linear"}}
+                       exit={{x:-400}}
+              >  
+                   <div className="row p-3">
+                      <div className="col-12 mb-5">
+                        <div className="d-flex flex-column border rounded-3 bg-white">
+                          <div
+                            className={`p-3 border-bottom rounded-top-3 fs-5 d-flex align-items-center gap-2 ${
+                              activeMenu === "Home" ? "acliveMenu" : ""
+                            }`}
+                            onClick={() => setActiveMenu("Home")}
+                          >
+                            <CiHome className="fs-4" /> Home
+                          </div>
+
+                          <div
+                            className={`p-3 border-bottom fs-5 d-flex align-items-center gap-2 ${
+                              activeMenu === "Services" ? "acliveMenu" : ""
+                            }`}
+                            onClick={() => setActiveMenu("Services")}
+                          >
+                            <MdMiscellaneousServices className="fs-4" /> Services
+                          </div>
+
+                          <div
+                            className={`p-3 border-bottom rounded-bottom-3 fs-5 d-flex align-items-center gap-2 ${
+                              activeMenu === "Contact" ? "acliveMenu" : ""
+                            }`}
+                            onClick={() => setActiveMenu("Contact")}
+                          >
+                            <MdContactMail className="fs-4" /> Contact
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-12 d-flex gap-1"
+                             
+                      >
+                           <motion.button 
+                                className="login-btn border rounded-3 bg-white p-3 w-50 fs-5 d-flex align-items-center gap-2"
+                                initial={{ scale: 1 }}
+                                whileTap={{ scale: 1.2 }}
+                              >
+                                <TbLogin2 className="fs-4" /> Login
+                          </motion.button>
+
+                           <motion.button className="login-btn border rounded-3 bg-white p-3 w-50 fs-5 d-flex align-items-center gap-2"
+                                initial={{scale:1}}
+                                whileTap={{scale:1.2}}
+                           ><TbLogin className="fs-4" />Sing In</motion.button>
+                      </div>
+                      
+                   </div>
+                   
+
+                       
+              </motion.nav>
+        }
+      </div>
+      
          
          
 
     </div>
-    {/* <Navbar expand="lg" className=" bg-body-tertiary">
-      <Container fluid>
-        <Navbar.Brand href="#" style={{height:"60px"}}>
-              <svg width="200"  viewBox="0 0 300 58" xmlns="http://www.w3.org/2000/svg" className='p-0 m-0'>
-                  <text x="10" y="50" font-family="Arial" font-size="40" font-weight="bold" fill="black">DO</text>
-                  <text x="75" y="50" font-family="Arial" font-size="50"  fill="black">C</text>      
-                  
-                  <path d="M170 35 Q75 80, 70 30 T90 20" stroke="black" stroke-width="4" fill="none"/>
-                  <circle cx="106" cy="27" r="5" fill="blue"/>
-                  <circle cx="106" cy="40" r="5" fill="blue"/>
-                  
-                  <text x="116" y="50" font-family="Arial" font-size="40" font-weight="bold" fill="black">T</text>
-                  <text x="143" y="50" font-family="Arial" font-size="52" font-weight="bold" fill="black">O</text>                
-                  
-                  <circle cx="163" cy="32" r="7" stroke="black" stroke-width="4" fill="white"/>
-                  <circle cx="163" cy="32" r="4" fill="blue"/>
-                  <text x="182" y="50" font-family="Arial" font-size="40" font-weight="bold" fill="black">R</text>
-              </svg>
-
-        </Navbar.Brand>
-        <Navbar.Toggle className='border-0 shadow-none'/>
-        
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ height: '100vh' }}
-            navbarScroll
-          >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
-          </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar> */}
-       
-    
+  
     </>
   )
 }
