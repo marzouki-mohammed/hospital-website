@@ -1,27 +1,70 @@
+:root{
+    --main-color : linear-gradient(to right, rgb(239, 235, 244), rgb(238, 226, 255));
+    --btn-color : linear-gradient(to right, rgb(229, 211, 245), rgb(200, 180, 230));
+}
 body{
-    background: linear-gradient(to right, rgb(239, 235, 244), rgb(238, 226, 255)); 
+    margin: 0;
+    padding: 0;
+    background: var(--main-color) ; 
 }
 #root{
     height: 100vh;
     width: 100vw;
 }
-
-
-
-
+a{
+    text-decoration: none !important;
+}
 
 
 .mobile-menu-content{
     position: fixed;
     top: 13vh;
     left: 0;
-    width:320px;
+    width:302px;
 }
 .acliveMenu {
-    background: linear-gradient(to right, rgb(229, 211, 245), rgb(200, 180, 230)); 
+    background: var(--btn-color); 
 }
 .login-btn{
-    background: linear-gradient(to right, rgb(239, 235, 244), rgb(238, 226, 255)); 
+    background: var(--main-color); 
+}
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-item.active .icon-container {
+    background: var(--btn-color); 
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.tooltip-arrow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    background: black;
+    width: 20px;
+    height: 10px;
+}
+.navBar{
+    width: 100%;
+}
+@media (min-width : 800px ){
+    .navBar{
+        width: 90%;
+    }
+}
+@media (max-width : 576px) {
+    .logo{
+        text-align: end;
+    }
+    
 }
 
 
