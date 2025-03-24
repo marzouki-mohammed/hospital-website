@@ -5,6 +5,7 @@ import Home from "./pages/Home"
 import Services from "./pages/Services"
 import Contact from "./pages/Contact"
 import NoPage from "./pages/NoPage"
+import SignUp from "./pages/SignUp"
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
               <Route index element={<Home />} />
               <Route path="Services" element={<Services />} />
               <Route path="Contact" element={<Contact />} />
+              <Route path="SignUp" element={<SignUp />} />
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>
