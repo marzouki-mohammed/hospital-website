@@ -58,9 +58,12 @@ const NavBar = () => {
                        <MenuItem label="Contact" Icon={MdContactMail} activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
                          
                     </Link>
+                    <Link to = "/SignUp"  className=" text-black">
+                        <MenuItem label="Se Connecter" Icon={TbLogin2} activeMenu={activeMenu} setActiveMenu={setActiveMenu} /> 
+                    </Link>
+
                     
 
-                    <MenuItem label="Se Connecter" Icon={TbLogin2} activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
                 </div>
             </div>
             

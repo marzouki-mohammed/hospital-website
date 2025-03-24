@@ -1,6 +1,12 @@
 import {motion} from "framer-motion"
 import doc from "../../assets/banner2.png"
-const doctors = [
+import DocCard from "./DocCard";
+export interface Doc{
+  name:string,
+  specialty:string,
+  image:any
+}
+const doctors : Doc[] = [
   {
     name: "Dr. Richard James",
     specialty: "General physician",
@@ -34,32 +40,7 @@ const DoctorsList = () => {
       <div className="row justify-content-center mt-2">
         {
             doctors.map((doctor, index)=>(
-                <div className="col-12 col-sm-6 col-lg-3  mb-2" key={index}>
-                    <motion.div className="card shadow-sm border-0"
-                                initial={{y:0}}
-                                whileHover={{y:-5}}
-                    >
-                        <div className="d-flex flex-column gap-2">
-                            <div>
-                                <img
-                                    src={doctor.image}
-                                    alt={doctor.name}
-                                    height="300"
-                                    width="200" 
-                                    className="text-center"    
-                                />
-                            </div>
-                                
-                                <div className="d-flex flex-column justify-content-center">
-                                    <p className="text-success fw-bold">● Available</p>
-                                    <h5 className="card-title fw-bold">{doctor.name}</h5>
-                                    <p className="text-muted">{doctor.specialty}</p>
-                                </div>
-
-                        </div>
-                         
-                    </motion.div>
-                </div>
+                <DocCard doctorInfo={doctor}key={index} page="Home"/>
 
             ))
         }

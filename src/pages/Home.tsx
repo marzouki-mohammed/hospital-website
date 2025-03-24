@@ -1,7 +1,7 @@
 import Banner from "../components/layout/Banner"
 import BannerEnd from "../components/layout/BannerEnd"
 import DoctorsList from "../components/layout/DoctorsList"
-import Specialties from "../components/layout/specialties"
+import Specialties from "../components/layout/Specialties"
 
 const Home = () => {
   return (
