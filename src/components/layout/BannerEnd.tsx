@@ -1,5 +1,4 @@
-import {motion} from "framer-motion"
-import banner from "../../assets/banner.png"
+import { Link } from "react-router-dom"
 const BannerEnd = () => {
   return (
     <div className="banner-color border rounded-1 d-flex text-white text-center justify-content-between w-100" >
@@ -9,9 +8,9 @@ const BannerEnd = () => {
            
               
             <div className="mt-4">
-                  <a href="#" className="btn btn-light text-primary fw-bold px-4 py-2 rounded-pill">
+                  <Link to="/SignUp"  className="btn btn-light text-primary fw-bold px-4 py-2 rounded-pill">
                     Create account →
-                  </a>
+                  </Link>
             </div>
           
          </div>

@@ -1,5 +1,6 @@
 import banner from "../../assets/banner2.png";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -25,9 +26,9 @@ const Banner = () => {
 
               
             <div className="mt-4">
-                  <a href="#" className="btn btn-light text-primary fw-bold px-4 py-2 rounded-pill">
+                  <Link to="/Services" className="btn btn-light text-primary fw-bold px-4 py-2 rounded-pill">
                     Book appointment →
-                  </a>
+                  </Link>
             </div>
           
       </div>

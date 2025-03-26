@@ -58,23 +58,19 @@ const MobileMenu = ({ setActiveMenu, activeMenu }: MobileMenuProps) => {
                     
                 </div>
             </div>
-            <div className="col-12 d-flex gap-1"
+            <Link to="/SignUp" className="text-black">
+                    <motion.div
+                        className="col-12 login-btn border rounded-3 bg-white p-3 w-100 fs-5 "
+                        initial={{ scale: 1 }}
+                        whileTap={{ scale: 1.2 }}
+                        >
+                        <TbLogin2 className="fs-4" /> Login
+                    </motion.div>
+                        
+            </Link>
                 
-            >
-                <motion.button 
-                    className="login-btn border rounded-3 bg-white p-3 w-50 fs-5 d-flex align-items-center gap-2"
-                    initial={{ scale: 1 }}
-                    whileTap={{ scale: 1.2 }}
-                >
-                    <TbLogin2 className="fs-4" /> Login
-                </motion.button>
-
-                <motion.button className="login-btn border rounded-3 bg-white p-3 w-50 fs-5 d-flex align-items-center gap-2"
-                    initial={{scale:1}}
-                    whileTap={{scale:1.2}}
-                ><TbLogin className="fs-4" />Sing In</motion.button>
             </div>
-        </div>
+        
 
 
 
