@@ -1,6 +1,7 @@
-import {motion} from "framer-motion"
+
 import doc from "../../assets/banner2.png"
 import DocCard from "./DocCard";
+import { Link } from "react-router-dom";
 export interface Doc{
   name:string,
   specialty:string,
@@ -45,9 +46,9 @@ const DoctorsList = () => {
             ))
         }
         <div className="mt-4">
-                  <a href="#" className="btn btn-light text-primary fw-bold px-4 py-2 rounded-pill">
+                  <Link to="/Services" className="btn btn-light text-primary fw-bold px-4 py-2 rounded-pill">
                     more →
-                  </a>
+                  </Link>
         </div>
 
       </div>

@@ -1,7 +1,7 @@
 :root{
     --main-color : linear-gradient(to right, rgb(239, 235, 244), rgb(238, 226, 255));
     --btn-color : linear-gradient(to right, rgb(229, 211, 245), rgb(200, 180, 230));
-    --banner-color : linear-gradient(to right, rgb(207, 234, 247), rgb(140, 190, 230));
+    --banner-color : linear-gradient(to right, rgb(207, 234, 247), rgb(166, 177, 225));
 }
 body{
     margin: 0;
@@ -208,4 +208,76 @@ a{
     }
 }
 
+
+
+
+/* .footer-container {
+    background: linear-gradient(to bottom, #d0e8ff, #82b4f9);
+    color: #fff;
+    padding: 40px 0;
+    position: relative;
+  }
+  
+  .footer-title {
+    font-weight: bold;
+  }
+  
+  .input-group input {
+    border-radius: 20px 0 0 20px;
+  }
+  
+  .input-group button {
+    border-radius: 0 20px 20px 0;
+  }
+  
+  .footer-bottom {
+    background: #0056b3;
+    color: white;
+  } */
+
+  .footer {
+    background: var(--banner-color);
+    padding: 40px 0;
+    color: #333;
+    margin-top: 120px;
+    border-radius: 8px;
+  }
+  
+  
+  .footer .logo-container {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+   height: 10px;
+    
+  }
+  .logoFooter{
+    position: relative;
+    top: -110px;
+
+  }
+ 
+  
+  .footer ul {
+    padding: 0;
+  }
+  
+  .footer ul li {
+    list-style: none;
+    margin-bottom: 5px;
+  }
+  
+  .footer form input {
+    width: 80%;
+    padding: 8px;
+  }
+  
+  .footer button {
+    width: 80%;
+  }
+  
+  
 

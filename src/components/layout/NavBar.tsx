@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import { TfiMenu } from "react-icons/tfi";
 import { FaRegWindowClose } from "react-icons/fa";
 import { CiHome } from "react-icons/ci";
@@ -8,14 +8,45 @@ import { TbLogin2 } from "react-icons/tb";
 import MobileMenu from "./MobileMenu";
 import MenuItem from "./MenuItem";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "../../app/features/navigationSlice";
+import { AppDispatch , RootState } from "../../app/store";  // Import des types du store
+import { useLocation } from "react-router-dom";
 
 const NavBar = () => {
+    const pageNav = useSelector((state: RootState) => state.navigation.value);
+    const dispatch = useDispatch<AppDispatch>();
+
+    const location = useLocation(); // 📌 Récupérer l'URL actuelle
+
     const [isopenMenu, setIsopenMenu] = useState<boolean>(false);
-    const [activeMenu, setActiveMenu] = useState<string>("Home");
+    const [activeMenu, setActiveMenu] = useState<string>(pageNav);
 
     const handlerClickMenu = () => {
         setIsopenMenu(!isopenMenu);
     };
+
+
+    useEffect(() => {
+        const currentPath = location.pathname;
+        let newMenu = "Home"; // Définir une valeur par défaut
+
+        if (currentPath.includes("Services")) newMenu = "Services";
+        else if (currentPath.includes("Contact")) newMenu = "Contact";
+        else if (currentPath.includes("SignUp")) newMenu = "Se Connecter";
+
+        setActiveMenu(newMenu);
+        dispatch(Navigate(newMenu));
+    }, [location, dispatch]);
+
+    const handleMenuClick = (menu: string) => {
+        setActiveMenu(menu);
+        dispatch(Navigate(menu)); // 🔥 Met à jour Redux
+    };
+
+
+
+
 
     return (
         <>
@@ -46,7 +77,7 @@ const NavBar = () => {
                 </div>
 
                 {/* Menu Desktop */}
-                <div className="col-sm-8 d-none d-sm-flex gap-2 justify-content-end">
+                {/* <div className="col-sm-8 d-none d-sm-flex gap-2 justify-content-end">
                     <Link to="/" className=" text-black">
                         <MenuItem label="Home" Icon={CiHome} activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
                     </Link>
@@ -64,6 +95,22 @@ const NavBar = () => {
 
                     
 
+                </div> */}
+                <div className="col-sm-8 d-none d-sm-flex gap-2 justify-content-end">
+                
+                    <Link to="/" className="text-black">
+                        <MenuItem label="Home" Icon={CiHome} activeMenu={activeMenu} setActiveMenu={handleMenuClick} />
+                    </Link>
+                    <Link to="/Services" className="text-black">
+                        <MenuItem label="Services" Icon={MdMiscellaneousServices} activeMenu={activeMenu} setActiveMenu={handleMenuClick} />
+                    </Link>
+                    <Link to="/Contact" className="text-black">
+                        <MenuItem label="Contact" Icon={MdContactMail} activeMenu={activeMenu} setActiveMenu={handleMenuClick} />
+                    </Link>
+                    <Link to="/SignUp" className="text-black">
+                        <MenuItem label="Se Connecter" Icon={TbLogin2} activeMenu={activeMenu} setActiveMenu={handleMenuClick} />
+                    </Link>
+               
                 </div>
             </div>
             
@@ -74,3 +121,13 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
+
+
+
+
+
+
+
+

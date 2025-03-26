@@ -21,21 +21,23 @@ const ContactForm = () => {
           <h2 className="fw-bold">Contact Us</h2>
           <form>
             <div className="mb-3">
-              <input type="text" className="w-100 input" placeholder="Enter your Name" />
+              <input type="text" className="w-100 form-control" placeholder="Enter your Name" />
             </div>
             <div className="mb-3">
-              <input type="email" className="w-100 input" placeholder="Enter a valid email address" />
+              <input type="email" className="w-100 form-control" placeholder="Enter a valid email address" />
             </div>
             <div className="mb-3">
-              <textarea className="w-100 input h-100" rows={3} placeholder="Message"></textarea>
+              <textarea className="w-100 form-control h-100" rows={3} placeholder="Message"></textarea>
             </div>
             <div className="mb-3 form-check">
               <input type="checkbox" className="form-check-input shadow-none" id="termsCheck"/>
               <label className="form-check-label text-muted small" htmlFor="termsCheck">
-                I accept the <span className="text-danger">Terms of Service</span>
+                I accept the <span className="text-primary">Terms of Service</span>
               </label>
             </div>
-            <button className="btn  w-100" style={{background:"linear-gradient(to right, rgb(207, 234, 247), rgb(140, 190, 230))"}}>SUBMIT</button>
+            <div className="w-100 text-start">
+                 <button className="btn btn-primary w-25">SUBMIT</button>
+            </div>
           </form>
         </div>
       </div>
